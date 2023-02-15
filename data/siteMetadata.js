@@ -1,7 +1,7 @@
 const siteMetadata = {
-  title: 'Bunge Monitoring Blog',
+  title: 'Bunge Monitoring Platform',
   author: '', //Kevin Misigaro
-  headerTitle: 'Bunge Monitoring Blog',
+  headerTitle: 'Bunge Monitoring Platform',
   description: 'A blog to monitor Parliament reports',
   language: 'en-us',
   theme: 'system', // system, dark or light

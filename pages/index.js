@@ -1,11 +1,7 @@
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
-import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
-// import formatDate from '@/lib/utils/formatDate'
-
-// import NewsletterForm from '@/components/NewsletterForm'
 import axios from 'axios'
 import moment from 'moment/moment'
 
@@ -31,7 +27,11 @@ export default function Home({ posts, list }) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
+      <div
+        className="w-full bg-black/40 bg-cover bg-blend-overlay"
+        style={{ backgroundImage: `url('/static/images/team.png')`, height: '60vh' }}
+      ></div>
+      <div className="mx-auto max-w-6xl divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
             Latest Parliament Questions
@@ -43,7 +43,6 @@ export default function Home({ posts, list }) {
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!list.length && 'No posts found.'}
           {list.slice(0, MAX_DISPLAY).map((x, i) => {
-            // const { slug, date, title, summary, tags } = frontMatter
             return (
               <li key={i} className="py-12">
                 <article>
@@ -65,11 +64,6 @@ export default function Home({ posts, list }) {
                               {x.question}
                             </Link>
                           </h2>
-                          {/* <div className="flex flex-wrap">
-                            {tags.map((tag) => (
-                              <Tag key={tag} text={tag} />
-                            ))}
-                          </div> */}
                         </div>
                         <div className="prose max-w-none text-gray-500 dark:text-gray-400">
                           {trimText(x.description)}
@@ -103,11 +97,6 @@ export default function Home({ posts, list }) {
           </Link>
         </div>
       )}
-      {/* {siteMetadata.newsletter.provider !== '' && (
-        <div className="flex items-center justify-center pt-4">
-          <NewsletterForm />
-        </div>
-      )} */}
     </>
   )
 }
